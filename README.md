@@ -21,6 +21,10 @@ A high-performance, from-scratch implementation of a Redis server built in Go us
    - `PING`, `ECHO`, `SET`, `GET`, `DEL`, `EXPIRE`, `TTL`, `SET ... EX`, `QUIT`.
    - Case-insensitive command lookup.
    - Strictly standard library Go (compiles cleanly with `go run main.go`).
+ 5. **High-Concurrency Benchmarking & Performance**
+   - Stress-tested against the official `redis-benchmark` utility simulating 50 simultaneous client connections across 100,000 total operations (50,000 SET + 50,000 GET):
+```bash
+redis-benchmark -p 6379 -n 50000 -c 50 -t set,get -q
 
 ---
 
